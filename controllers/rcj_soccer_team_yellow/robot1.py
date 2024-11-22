@@ -17,13 +17,4 @@ class MyRobot1(RCJSoccerRobot):
                     ball_distance = abs(0.01666666/(abs(ball_data['direction'][2])/math.sqrt(1 - ball_data['direction'][2]**2)))
                     xb = -math.sin(math.radians(ball_angle + heading)) * ball_distance + xr
                     yb =  math.cos(math.radians(ball_angle + heading)) * ball_distance + yr
-                    if state == 1:
-                        utils.moveTo(self, xb, yb - 0.15)
-                        if abs(xb - xr) < 0.01 and abs((yb-0.15) - yr) < 0.01:
-                            state = 2
-                    elif state == 2:
-                        utils.moveTo(self, xb, yb)
-                        if abs(xb - xr) > 0.2 or abs(yb - yr) > 0.2:
-                            state = 1
-                else:
-                    utils.stop(self)
+                utils.moveTo(self, xb, -0.55)
